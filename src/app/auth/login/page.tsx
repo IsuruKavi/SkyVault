@@ -1,9 +1,56 @@
-import React from 'react'
+"use client";
 
-function page() {
+import React, { useState } from "react";
+import { Input } from "@/components/ui/input";
+
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+function SignIn() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log(email, password);
+  };
+ 
   return (
-    <main>page</main>
-  )
+    <div className="">
+      <p className="text-black font-bold text-4xl mb-8">Login</p>
+      <div className="grid w-full max-w-sm items-center gap-3">
+        <form onSubmit={handleSubmit}>
+          <Input
+            type="email"
+            id="email"
+            placeholder="Email"
+            className="w-90 h-12 mb-4"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <Input
+            type="email"
+            id="email"
+            placeholder="password"
+            className="w-90 h-12 mb-4"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <Button
+            variant="default"
+            type="submit"
+            className="bg-rose-400 rounded-full w-full h-12 text-white hover:bg-red-300 hover:text-white"
+          >
+            Log in
+          </Button>
+        </form>
+        <div className="flex flex-row justify-center">
+          <p className="mr-2 text-black">Don't have account ?</p>
+          <Link href={'/auth/signup'}>
+            <p className="text-rose-400">create account</p>{" "}
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default page
+export default SignIn;

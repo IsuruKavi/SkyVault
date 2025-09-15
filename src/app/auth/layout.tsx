@@ -6,12 +6,14 @@ export default function AuthLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="  sm:bg-amber-600 md:flex-row  md:flex w-full h-full bg-amber-300">
-      <div className="w-[35vw] h-[100vh]">
+    <div className="md:flex-row  md:flex  h-[100vh] bg-white">
+      <div className=" w-full md:flex-[1.2] ">
         <AuthHeader />
       </div>
 
-      <div>{children}</div>
+      <div className=" flex-[2] flex justify-center items-center">
+        {children}
+      </div>
     </div>
   );
 }
